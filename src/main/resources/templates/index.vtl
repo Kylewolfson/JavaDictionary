@@ -10,7 +10,7 @@
 </form>
 
 <ul>
-#foreach($word in $words)
-<li>$word</li>
-#end
+  #foreach($word in $words)
+    <li><a href="/word/$word.getId()">$word.getName()</a></li>
+  #end
 </ul>

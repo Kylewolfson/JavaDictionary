@@ -1,0 +1,17 @@
+$word.getName()
+
+<ol>
+#foreach ($definition in $definitions)
+<li>$definition</li>
+#end
+</ol>
+
+
+<p>Add a new definition:</p>
+
+<form action="/newdefinition/:id" method="post">
+  <label for="definition">Word:</label>
+  <input id="definition" name="definition" type="text">
+
+  <button type="submit" class="btn btn-default">Add definition</button>
+</form>

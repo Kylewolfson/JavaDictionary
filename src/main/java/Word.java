@@ -35,4 +35,12 @@ private static ArrayList<Word> dictionary = new ArrayList<Word>();
     dictionary.clear();
   }
 
+  public static Word find(int index){
+    return dictionary.get(index);
+  }
+
+  public int getId(){
+    return (mId - 1);
+  }
+
 }
