@@ -11,10 +11,26 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
+
     get("/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/index.vtl");
+      model.put("words", Word.all());
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/newword", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String word = request.queryParams("word");
+      response.redirect("/");
+      return null;
+    });
+
+    get("/word/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
   }
 }

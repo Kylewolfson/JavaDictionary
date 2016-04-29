@@ -1,0 +1,16 @@
+<h1> Welcome to the Dictionary! </h1>
+
+<p>Add a new word:</p>
+
+<form action="/newword" method="post">
+  <label for="word">Word:</label>
+  <input id="word" name="word" type="text">
+
+  <button type="submit" class="btn btn-default">Add word</button>
+</form>
+
+<ul>
+#foreach($word in $words)
+<li>$word</li>
+#end
+</ul>
