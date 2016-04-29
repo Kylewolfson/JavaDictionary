@@ -36,11 +36,15 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/newdefinition/:id", (request, response) -> {
+    post("/newdefinition/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      Integer id = Integer.parseInt(request.queryParams("wordId"));
+
+      Word word = Word.find(id);
+
       String definition = request.queryParams("definition");
-      Word.find(Integer.parseInt(request.params(":id"))).addDefinition(definition);
-      response.redirect("/word/:id");
+      word.addDefinition(definition);
+      response.redirect("/word/" + id.toString());
       return null;
     });
 
