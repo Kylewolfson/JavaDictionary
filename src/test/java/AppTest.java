@@ -24,4 +24,12 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Welcome to the Dictionary!");
   }
+
+  @Test
+  public void word_addedToPage_true() {
+    goTo("http://localhost:4567/");
+    fill("#word").with("Doe");
+    submit(".btn");
+    assertThat(pageSource()).contains("Doe");
+  }
 }
