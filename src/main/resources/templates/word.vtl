@@ -1,4 +1,4 @@
-$word.getName()
+<h1>$word.getName()</h1>
 
 <ol>
 #foreach ($definition in $definitions)
@@ -12,7 +12,7 @@ $word.getName()
 <form action="/newdefinition/" method="post">
   <input id="wordId" name="wordId" type="hidden" value="$word.getId()">
 
-  <label for="definition">Word:</label>
+  <label for="definition">Definition:</label>
   <input id="definition" name="definition" type="text">
 
   <button type="submit" class="btn btn-default">Add definition</button>
