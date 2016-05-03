@@ -32,4 +32,16 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("Doe");
   }
+
+  @Test
+  public void definition_addedToDefinitionPage_true() {
+    goTo("http://localhost:4567/");
+    fill("#word").with("Doe");
+    submit(".btn");
+    click("a", withText("Doe"));
+    fill("#definition").with("A deer");
+    submit(".btn");
+    assertThat(pageSource()).contains("A deer");
+  }
+
 }
